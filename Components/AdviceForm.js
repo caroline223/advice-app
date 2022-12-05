@@ -4,7 +4,7 @@ import React, {useState, useRef} from 'react'
 function AdviceForm(){
 
     const [randomAdvice, setReandomAdvice] = useState('')
-    const [query, setQuery] = useState('')
+    const [query, setSearchQuery] = useState('')
     const [message, setMessage] = useState('')
 
 
@@ -29,6 +29,27 @@ function AdviceForm(){
 
     }
 
+    const searchSubmit = () => {
+
+        const query = queryInput.current.value
+
+        fetch(`https://api.adviceslip.com/advice/search/${query}`)
+
+        .then((response) => {
+            return response.json()
+        })
+
+        .then((completeData) => {
+            console.log(completeData)
+
+            completeData ? setSearchQuery(completeData.slips[0].advice) : setMessage(completeData.message.text)
+        })
+
+        .catch(error => {
+            console.log(error)
+        })
+    }
+
 
     return(
         <div>
@@ -36,6 +57,17 @@ function AdviceForm(){
             <h3>Click Below to Read a Random Piece of Advice</h3>
             <button onClick={randomSubmit}>Click Me</button>
             <p>{randomAdvice}</p>
+
+            <div>
+                <h3>Type a Keyword Below to Search For Advice</h3>
+                <input
+                    ref={queryInput}
+                    required
+                    type="text"
+                />&nbsp;
+                    <button onClick={searchSubmit} type="submit">Results</button>
+                <p style={{textAlign: 'center'}}>{query ? query : message}</p>
+            </div>
         </div>
     )
 
