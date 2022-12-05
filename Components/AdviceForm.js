@@ -9,6 +9,7 @@ function AdviceForm(){
 
 
     const queryInput = useRef()
+    
 
     const randomSubmit = () => {
 
@@ -32,7 +33,7 @@ function AdviceForm(){
     const searchSubmit = () => {
 
         const query = queryInput.current.value
-
+       
         fetch(`https://api.adviceslip.com/advice/search/${query}`)
 
         .then((response) => {
@@ -43,6 +44,12 @@ function AdviceForm(){
             console.log(completeData)
 
             completeData ? setSearchQuery(completeData.slips[0].advice) : setMessage(completeData.message.text)
+
+            // if(completeData === true){
+            //     setSearchQuery(completeData.slips[0].advice)
+            // } else{
+            //     setMessage(completeData.message.text)
+            // }
         })
 
         .catch(error => {
