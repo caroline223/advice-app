@@ -34,7 +34,7 @@ function AdviceForm(){
     const searchSubmit = () => {
 
         const query = queryInput.current.value
-        const message = "Sorry! Can't help with that!"
+        
        
        
         fetch(`https://api.adviceslip.com/advice/search/${query}`)
@@ -45,7 +45,7 @@ function AdviceForm(){
 
         .then((completeData) => {
             console.log(completeData)
-            completeData ? setSearchQuery(completeData.slips[0].advice) : setMessage(message)
+            setSearchQuery(completeData.slips[0].advice)
 
             // if(completeData === true){
             //     setSearchQuery(completeData.slips[0].advice)
@@ -54,9 +54,11 @@ function AdviceForm(){
             // }
         })
 
-        .catch((message) => {
-            console.log("Sorry! Can't help with that!")
-            setMessage(message.text)
+        .catch((error) => {
+            console.log(error)
+            
+            const message = "Sorry! Can't help with that!"
+            setMessage(message)
         })
     }
 
