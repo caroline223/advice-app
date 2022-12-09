@@ -3,12 +3,13 @@ import React, {useState, useRef} from 'react'
 
 function AdviceForm(){
 
-    const [randomAdvice, setReandomAdvice] = useState('')
-    const [query, setSearchQuery] = useState('')
-    const [message, setMessage] = useState('')
+    const [randomAdvice, setReandomAdvice] = useState("")
+    const [query, setSearchQuery] = useState("")
+    const [message, setMessage] = useState("")
 
 
     const queryInput = useRef()
+    
     
 
     const randomSubmit = () => {
@@ -33,6 +34,8 @@ function AdviceForm(){
     const searchSubmit = () => {
 
         const query = queryInput.current.value
+        const message = "Sorry! Can't help with that!"
+       
        
         fetch(`https://api.adviceslip.com/advice/search/${query}`)
 
@@ -42,18 +45,18 @@ function AdviceForm(){
 
         .then((completeData) => {
             console.log(completeData)
-
-            completeData ? setSearchQuery(completeData.slips[0].advice) : setMessage(completeData.message.text)
+            completeData ? setSearchQuery(completeData.slips[0].advice) : setMessage(message)
 
             // if(completeData === true){
             //     setSearchQuery(completeData.slips[0].advice)
             // } else{
-            //     setMessage(completeData.message.text)
+            //    setMessage(message)
             // }
         })
 
-        .catch(error => {
-            console.log(error)
+        .catch((message) => {
+            console.log("Sorry! Can't help with that!")
+            setMessage(message.text)
         })
     }
 
