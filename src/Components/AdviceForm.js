@@ -75,7 +75,7 @@ function AdviceForm(){
            
             <br /><br /><br /><br /><br />
             <div>
-            <h3>Are you looking for some advice that is a bit more specific to you?</h3>
+            <h3>Are you looking for some advice that is a bit more specific to your needs, wants, and desires?</h3>
                 <h4>Type a Keyword Below to Search For Advice</h4>
                     <div style={{textAlign: 'center'}}>
                         <input
