@@ -66,9 +66,12 @@ function AdviceForm(){
         <div>
             <h2>Daily Piece of Advice</h2>
             <h3>Click Below to Read a Random Piece of Advice</h3>
-            <button onClick={randomSubmit}>Click Me</button>
-            <button onClick={clearRandomInfo} type="submit">Clear</button>
             <p>{randomAdvice}</p>
+            <div style={{textAlign: 'center'}}>
+                <button onClick={randomSubmit}>Click Me</button>
+                <button onClick={clearRandomInfo} type="submit">Clear</button>
+            </div>
+           
 
             <div>
                 <h3>Are you experiencing stress? Doubt? Unsure of your next move?</h3>
