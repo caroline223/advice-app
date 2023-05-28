@@ -30,7 +30,6 @@ function AdviceForm(){
     }
 
     const clearRandomInfo = () => {
-        // slip.advice.slice(0)
         setRandomAdvice('')
     }
 
@@ -64,8 +63,9 @@ function AdviceForm(){
 
     return(
         <div>
-            <h2>Daily Piece of Advice</h2>
-            <h3>Click Below to Read a Random Piece of Advice</h3>
+            <br />
+            <h3>Are you experiencing stress? Doubt? Unsure of your next move?</h3>
+            <h3>Click Below to Read Different Pieces of Advice</h3>
             <p>{randomAdvice}</p>
             <br />
             <div style={{textAlign: 'center'}}>
@@ -73,9 +73,9 @@ function AdviceForm(){
                 <button onClick={clearRandomInfo} type="submit">Clear</button>
             </div>
            
-
+            <br /><br /><br /><br /><br />
             <div>
-                <h3>Are you experiencing stress? Doubt? Unsure of your next move?</h3>
+            <h3>Are you looking for some advice that is a bit more specific to you?</h3>
                 <h4>Type a Keyword Below to Search For Advice</h4>
                     <div style={{textAlign: 'center'}}>
                         <input
