@@ -67,8 +67,9 @@ function AdviceForm(){
             <h2>Daily Piece of Advice</h2>
             <h3>Click Below to Read a Random Piece of Advice</h3>
             <p>{randomAdvice}</p>
+            <br />
             <div style={{textAlign: 'center'}}>
-                <button onClick={randomSubmit}>Click Me</button>
+                <button onClick={randomSubmit}>Click Me</button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button onClick={clearRandomInfo} type="submit">Clear</button>
             </div>
            
@@ -85,7 +86,7 @@ function AdviceForm(){
                     </div>
                 &nbsp;
                 <div style={{textAlign: 'center'}}>
-                    <button onClick={searchSubmit} type="submit">Results</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onClick={searchSubmit} type="submit">Result</button>&nbsp;&nbsp;&nbsp;&nbsp;
                     <button onClick={clearSearchInfo} type="submit">Clear</button>
                 </div>
                 <p>{query}</p>
